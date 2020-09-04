@@ -3,6 +3,8 @@
 This script is intended to connect the VPN, by directly asking the TOTP token.  
 This script assumes the XAuth password has the format `<UserPassword><TOTPToken>`
 
+The secrets are managed by pass (https://www.passwordstore.org/) using PGP encryption.
+
 # Configure
 
 1. You must have a previously working VPN connection in the Network Manager
