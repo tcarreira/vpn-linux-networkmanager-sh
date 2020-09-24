@@ -24,8 +24,10 @@ fi
 
 # Check already connected VPN
 if [[ $(nmcli connection show --active | grep "$VPN_NAME" | wc -l) -gt 0 ]]; then
-  read -p "${VPN_NAME} is already ON. Disconnect? [y/N] " choice
-  if [[ "$choice" =~ [yY] ]]; then
+  read -p "${VPN_NAME} is already ON. Disconnect? [Y/n] " choice
+  if [[ "$choice" =~ [nN] ]]; then
+    echo "No action"
+  else
     nmcli connection down "${VPN_NAME}"
     echo "$VPN_NAME was DISCONNECTED"
   fi
